@@ -18,6 +18,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    //회원 생성
     @PostMapping("/signup")
     public ResponseEntity<SignUpResponseDto> signUp(@RequestBody SignUpRequestDto requestDto){
 
@@ -30,6 +31,7 @@ public class MemberController {
         return new ResponseEntity<>(signUpResponseDto, HttpStatus.CREATED);
     }
 
+    //특정 회원 조회 기능
     @GetMapping("/{id}")
     public ResponseEntity<MemberResponseDto> findById(@PathVariable Long id){
 
@@ -38,6 +40,7 @@ public class MemberController {
         return new ResponseEntity<>(memberResponseDto, HttpStatus.OK);
     }
 
+    //비밀번호 수정 기능
     @PatchMapping("/{id}")
     public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UpdatePasswordRequestDto requestDto){
 

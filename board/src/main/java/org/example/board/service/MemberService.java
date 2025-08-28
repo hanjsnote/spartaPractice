@@ -19,6 +19,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    //회원 생성
     public SignUpResponseDto signUp (String username, String password, Integer age) {
 
         Member member = new Member(username, password, age);
@@ -32,6 +33,7 @@ public class MemberService {
         );
     }
 
+    //특정 회원 조회
     public MemberResponseDto findById(Long id) {
 
         Optional<Member> optionalMember = memberRepository.findById(id);
@@ -48,6 +50,7 @@ public class MemberService {
         );
     }
 
+    //비밀번호 수정 기능
     @Transactional
     public void updatePassword(Long id, String oldPassword, String newPassword) {
 
